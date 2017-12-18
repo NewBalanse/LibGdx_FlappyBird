@@ -2,28 +2,34 @@ package com.mygdx.game.GameSetting;
 
 
 public class GameSetting {
-    int TypeMedal;
     int TotalCount;
-
-
-    public int getTypeMedal() {
-        return TypeMedal;
-    }
+    FileStream fileStream;
 
     public int getTotalCount() {
         return TotalCount;
     }
 
-    private void ConnectToDataBase() {
-        ReturnMedal();
+    public GameSetting() {
+        fileStream = new FileStream();
+        ReturnTotalCount();
+    }
+
+    public GameSetting(String filePath) {
+        fileStream = new FileStream(filePath);
         ReturnTotalCount();
     }
 
     private void ReturnTotalCount() {
+        String result;
+        result = fileStream.WriteFile();
+        if (result.equals(""))
+            TotalCount = 0;
+        else
+            TotalCount = Integer.parseInt(result);
 
     }
 
-    private void ReturnMedal() {
-
+    public void SaveCount(int NewBestCount) {
+        fileStream.SaveFile(NewBestCount);
     }
 }

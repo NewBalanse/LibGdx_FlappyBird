@@ -1,6 +1,7 @@
 package com.mygdx.game.Scale;
 
 import com.badlogic.gdx.graphics.g2d.SpriteBatch;
+import com.mygdx.game.GameSetting.GameSetting;
 
 import java.util.Stack;
 

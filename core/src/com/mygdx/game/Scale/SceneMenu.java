@@ -6,6 +6,7 @@ import com.badlogic.gdx.graphics.g2d.SpriteBatch;
 import com.badlogic.gdx.scenes.scene2d.ui.Button;
 import com.badlogic.gdx.scenes.scene2d.ui.Image;
 import com.badlogic.gdx.scenes.scene2d.ui.ImageButton;
+import com.mygdx.game.GameSetting.GameSetting;
 
 /**
  * Created by NewBalanse on 04.12.2017.
@@ -30,6 +31,9 @@ public class SceneMenu extends GameState {
         imagePlayButton = new Texture("playbtn.png");
         positionPlayX = ((Gdx.graphics.getWidth() / 2) - (imagePlayButton.getWidth() / 2));
         positionPlayY = (Gdx.graphics.getHeight() / 2);
+/*
+        GameSetting setting = new GameSetting();
+        int total = setting.getTotalCount();*/
     }
 
     @Override
@@ -43,18 +47,10 @@ public class SceneMenu extends GameState {
      */
     @Override
     protected void handleInput() {
-        /*if (Gdx.input.getInputProcessor().touchDown()) {
-            Vector3 touch = new Vector3(Gdx.input.getX(), Gdx.input.getY(), 0);
-            camera.unproject(touch);
-            *//*if (playButton.contains(touch.x, touch.y)) {
-
-            }*//*
-            dispose();
-        }*/
         if (Gdx.input.justTouched()) {
             float x = Gdx.input.getX();
             float y = Gdx.input.getY();
-            if (x > positionPlayX && x < positionPlayX + imagePlayButton.getWidth() && y < positionPlayY && y > positionPlayY - imagePlayButton.getHeight())
+            if (x > positionPlayX && x < positionPlayX + imagePlayButton.getWidth()*2 && y < positionPlayY && y > positionPlayY - imagePlayButton.getHeight()*2)
                 gameManager.set(new GameScene(gameManager));
         }
     }

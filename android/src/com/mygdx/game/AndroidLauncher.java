@@ -6,6 +6,7 @@ import android.os.Bundle;
 import com.badlogic.gdx.backends.android.AndroidApplication;
 import com.badlogic.gdx.backends.android.AndroidApplicationConfiguration;
 import com.mygdx.game.DataBase.DBHelper;
+import com.mygdx.game.GameController;
 
 public class AndroidLauncher extends AndroidApplication {
 	DBHelper helper;
@@ -13,7 +14,6 @@ public class AndroidLauncher extends AndroidApplication {
 	protected void onCreate (Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
 		AndroidApplicationConfiguration config = new AndroidApplicationConfiguration();
-
 		helper = new DBHelper(this);
 		SQLiteDatabase db = helper.getWritableDatabase();
 

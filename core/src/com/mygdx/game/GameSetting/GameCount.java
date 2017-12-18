@@ -5,55 +5,20 @@ package com.mygdx.game.GameSetting;
  */
 
 public class GameCount {
-    int TotalCount;
-
-    boolean GoldMedal;
-    boolean SilverMedal;
-    boolean BronzeMedal;
+    float TotalCount;
 
     GameSetting gameSetting;
 
     public GameCount() {
         gameSetting = new GameSetting();
-        TotalCount = gameSetting.getTotalCount();
-        switch (gameSetting.getTypeMedal()) {
-            case 1:
-                GoldMedal = true;
-                break;
-            case 2:
-                SilverMedal = true;
-                break;
-            case 3:
-                BronzeMedal = true;
-                break;
-            default:
-                break;
-        }
     }
 
-    public void setTotalCount(int totalCount) {
+    public void setTotalCount(float totalCount) {
         TotalCount = totalCount;
-        if (TotalCount == 5)
-            BronzeMedal = true;
-        else if (TotalCount == 10)
-            SilverMedal = true;
-        else if (TotalCount >= 25)
-            GoldMedal = true;
     }
 
-    public int getTotalCount() {
+    public float getTotalCount() {
         return TotalCount;
     }
 
-    public boolean isGoldMedal() {
-        return GoldMedal;
-    }
-
-    public boolean isSilverMedal() {
-        return SilverMedal;
-    }
-
-    public boolean isBronzeMedal() {
-        return BronzeMedal;
-    }
 }
